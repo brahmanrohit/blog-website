@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4 admin-container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Registered Users</h2>
+            <table class="table table-striped user-table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.age }}</td>
+                        <td>{{ user.phone_number }}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" onclick="deleteUser('{{ user.user_id }}')">Delete</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6">
+            <h2>Pending Registrations</h2>
+            <table class="table table-striped pending-table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Phone Number</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in pending_users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.age }}</td>
+                        <td>{{ user.phone_number }}</td>
+                        <td>
+                            <button class="btn btn-success btn-sm" onclick="approveUser('{{ user.user_id }}')">Approve</button>
+                            <button class="btn btn-danger btn-sm" onclick="denyUser('{{ user.user_id }}')">Deny</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Button triggers for Add Admin and Reset Password -->
+    <div class="row mt-4">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-primary" id="addAdminModal">Add Admin</button>
+            <button class="btn btn-secondary" id="resetPasswordModal">Reset Password</button>
+        </div>
+    </div>
+</div>
+
+<!-- Add Admin Modal -->
+<div id="adminform" hidden>
+    <div class="header">Add Admin</div>
+    
+        <form id="addAdminForm">
+            <div class="form-group">
+                <label for="new-admin-username">Username</label>
+                <input type="text" class="form-control" id="new-admin-username" required>
+
+                <label for="new-admin-password">Password</label>
+                <input type="password" class="form-control" id="new-admin-password" required>
+
+                <button type="submit" class="btn btn-primary mt-2">Add Admin</button>
+
+
+           
+        </form>
+
+    </div>
+
+
+        </div>
+
+
+
+<script>
+   
+    
+
+</script>
+{% endblock %}

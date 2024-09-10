@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="Conatiner">
+    <h2>{{post.data[0]}}</h2>
+
+</div>
+
+<script>
+    const postsContainer=document.getElementById('Container')
+    let post=`{{post.data}}`
+    const postItem = document.createElement('div');
+        postItem.className = 'list-group-item mb-3';
+        <!-- dateformat=post['timestamp'].split(' ')[0].split('-'); -->
+        postItem.innerHTML = `
+            <div class="d-flex justify-content-between">
+                <h5 class="mb-1">${post["post_title"]}</h5> <!-- post_title -->
+                <button class="btn btn-primary btn-sm" onclick="sharePost('${post['post_id']}')">Share Post</button> <!-- post_id -->
+            </div>
+            <p class="mb-1"><strong>Author:</strong> ${post['post_author']}</p> <!-- post_author -->
+            <p class="mb-1">${post['post_content']}</p> <!-- post_content -->
+            <p class="mb-1">${post['tags']}</p> <!-- tags -->
+            <div id="post-image-${post[0]}" style="display: none;">
+                <!-- Image will be generated here -->
+            </div>
+        `;
+
+        postsContainer.appendChild(postItem);
+</script>
+{%endblock%}

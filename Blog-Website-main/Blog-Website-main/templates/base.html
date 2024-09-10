@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEV BLOGS {% block title %}{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    {% block head %}{% endblock %}
+    <style>
+        .sticky-top {
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+        }
+        #flash-message-container {
+            position: fixed;
+            top: 5vh;
+            right: 20px;
+            z-index: 1050;
+            width: 300px;
+        }
+        .navbar-brand {
+            margin-right: auto;
+        }
+        .navbar-nav {
+            margin-left: auto;
+        }
+        /* Full screen navbar styles */
+        .navbar-fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f8f9fa; /* Same color as the navbar background */
+            z-index: 1040;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .navbar-fullscreen .navbar-nav {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .navbar-fullscreen .navbar-nav .nav-link {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            align-items: center;
+        }
+       
+        .navbar-fullscreen.show {
+            display: flex;
+        }
+        .close-navbar {
+            position: absolute;
+            top: 4px;
+            right: 14vw;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        /* Hide the standard navbar when fullscreen is active */
+        .navbar-hide {
+            display: none;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('#flash-message').alert('close');
+            }, 3000); // Delay in milliseconds (3000ms = 3 seconds)
+
+            // Toggle fullscreen navbar
+            $('.navbar-toggler').click(function() {
+                $('.navbar-fullscreen').toggleClass('show');
+                $('header').toggleClass('navbar-hide');
+                $('.navbar-collapse').addClass('navbar-hide');
+            });
+
+            // Close fullscreen navbar when clicking on close button
+            $(document).on('click', '.close-navbar', function() {
+                $('.navbar-fullscreen').removeClass('show');
+                $('header').removeClass('navbar-hide');
+            });
+
+            // Close the navbar on link click
+            $('.navbar-nav .nav-link').click(function() {
+                if ($('.navbar-toggler').is(':visible')) {
+                    $('.navbar-collapse').collapse('hide');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <h1 class="navbar-brand mb-0" ><a href="{{url_for('index')}}" style="text-decoration: none; color:black;">ABlog</a></h1>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact">Contact</a>
+                        </li>
+                    </ul>
+                    <a class="btn btn-outline-primary" id="loginbtn" href="{{ url_for('login') }}">Login</a>
+                    <a href="{{url_for('logout')}}" onclick="logout()" id="logoutbtn" class="btn btn-danger" style=" margin-right:1vw; display:none;" >Log out</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Full screen navbar -->
+    <div class="navbar-fullscreen">
+        <span class="close-navbar">&times;</span>
+        <h2>ABlog</h2>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact</a>
+            </li>
+        </ul>
+        <a class="btn btn-outline-primary" href="{{ url_for('login') }}">Login</a>
+        <a href="{{url_for('logout')}}" onclick="logout()" id="logoutbtn" class="btn btn-danger" style=" margin-right:1vw; display:none;" >Log out</a>
+
+    </div>
+
+    <div id="flash-message-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div id="flash-message" class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <main class="container mt-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="text-center mt-4">
+        <p>&copy; 2024 ABlog</p>
+    </footer>
+    
+</body>
+</html>

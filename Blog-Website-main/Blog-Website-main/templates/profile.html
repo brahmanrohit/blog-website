@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Hello, {{username}}</h1>
+<a class="btn btn-outline-primary" href="{{ url_for('create_post') }}">Create Post</a>
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Main Content Area -->
+        <div class="col-md-12">
+            <div class="list-group" id="posts-container">
+                <!-- User posts will be added here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetchPosts();
+    });
+    function fetchPosts() {
+        fetch('/get_user_post', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }})
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 200) {
+                    renderPosts(data.data);
+                } else {
+                    alert('Failed to load posts');
+                }
+            })
+            .catch(error => console.error('Error fetching posts:', error));
+    }
+    //now renderPosts function
+    function renderPosts(posts) {
+        const postsContainer = document.getElementById('posts-container');
+        posts.forEach(post => {
+            const postItem = document.createElement('div');
+            postItem.className = 'list-group-item mb-3';
+            dateformat = post['timestamp'].split(' ')[0].split('-');
+            postItem.innerHTML = `
+            <div class="d-flex justify-content-between">
+                <h5 class="mb-1">${post["post_title"]}</h5>
+                <div>
+                <button class="btn btn-primary btn-sm" onclick="sharePost('${post['post_id']}')">Share Post</button>
+                <button class="btn btn-danger btn-sm" onclick="deletePost('${post['post_id']}')">Delete Post</button>
+                </div>
+            </div>
+            <p class="mb-1"><strong>Author:</strong> ${post['post_author']}</p>
+            <p class="mb-1"><strong>Date:</strong> ${dateformat[2]}-${dateformat[1]}-${dateformat[0]}</p>
+            <p class="mb-1">${post['post_content']}</p>
+            <p class="mb-1">${post['tags']}</p>
+            <div id="post-image-${post[0]}" style="display: none;">
+            </div>
+        `;
+            postsContainer.appendChild(postItem);
+        });
+    }
+
+    // Store username in sessionStorage if present
+    var username = "{{ username }}";
+    if (username) {
+        sessionStorage.setItem('username', username);
+
+        // Ensure there's a button with ID #loginbtn
+        var loginButton = document.getElementById('loginbtn');
+        if (loginButton) {
+            loginButton.textContent = username;
+        }
+    }
+</script>
+{% endblock %}

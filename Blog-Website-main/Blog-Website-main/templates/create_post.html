@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}
+
+{% block title %}
+    Create Post
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" style="width: 100%;">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="post_form">
+                <form action="{{url_for('create_post')}}" method="post">
+                    <h2>Create Post</h2>
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" name="post_title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Content</label>
+                        <textarea class="form-control" id="content" name="post_content" rows="10" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tags">Tags</label>
+                        <input type="text" class="form-control" id="tags" name="tags">
+                        <datalist>
+                            
+                        </datalist>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Post</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-9 offset-md-3">
+                    <div id="help-code">
+                        <div id="headings" class="help-section">
+                            <h2>Headings</h2>
+                            <p>Use the following <code>#</code> before text to create headings:</p>
+                            <h1># Heading 1</h1>
+                            <h2>## Heading 2</h2>
+                            <h3>### Heading 3</h3>
+                            <h4>#### Heading 4</h4>
+                            <h5>##### Heading 5</h5>
+                            <h6>###### Heading 6</h6>
+                        </div>
+                        <div id="basic-styling" class="help-section">
+                            <h2>Basic Styling</h2>
+                            <ul>
+                                <li><strong>Bold</strong>: Wrap text with <code>**</code> or <code>__</code>.</li>
+                                <li><em>Italic</em>: Wrap text with <code>*</code> or <code>_</code>.</li>
+                                <li>~~Strikethrough~~: Wrap text with <code>~~</code>.</li>
+                            </ul>
+                        </div>
+                        <div id="listing" class="help-section">
+                            <h2>Lists</h2>
+                            <h3>Unordered List</h3>
+                            <pre><code>- Item 1
+- Item 2
+  - Subitem 2.1
+  - Subitem 2.2
+</code></pre>
+                            <ul>
+                                <li>Item 1</li>
+                                <li>Item 2
+                                    <ul>
+                                        <li>Subitem 2.1</li>
+                                        <li>Subitem 2.2</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <h3>Ordered List</h3>
+                            <pre><code>1. First item
+2. Second item
+3. Third item
+</code></pre>
+                            <ol>
+                                <li>First item</li>
+                                <li>Second item</li>
+                                <li>Third item</li>
+                            </ol>
+                        </div>
+                        <div id="links-and-images" class="help-section">
+                            <h2>Links and Images</h2>
+                            <h3>Links</h3>
+                            <p>You can create links like this: <a href="https://www.openai.com/">OpenAI</a>.</p>
+                            <pre><code>[Link text](URL)</code></pre>
+                            <h3>Images</h3>
+                            <p><img src="https://example.com/image.jpg" alt="Alt text" title="Optional title" /></p>
+                            <pre><code>![Alt text](URL "Optional title")</code></pre>
+                        </div>
+                        <div id="code" class="help-section">
+                            <h2>Code</h2>
+                            <p>You can include inline code with backticks <code>Inline code</code>, or fenced code blocks:</p>
+                            <pre><code class="python">def greet(name):
+    print(f"Hello, {name}!")
+        
+greet("World")
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="help">
+                        <h1>How To Write Post</h1>
+                        <a href="#headings" class="help-link">Headings</a>
+                        <a href="#basic-styling" class="help-link">Basic Styling</a>
+                        <a href="#listing" class="help-link">Lists</a>
+                        <a href="#links-and-images" class="help-link">Links and Images</a>
+                        <a href="#code" class="help-link">Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

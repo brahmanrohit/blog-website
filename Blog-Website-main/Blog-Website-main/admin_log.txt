@@ -1,0 +1,57 @@
+2024-09-09 15:37:03.049022 - Admin: System - Action: Initialize Admin Table - Status: Success
+2024-09-09 15:37:03.052166 - Admin: System - Action: Initialize Users Table - Status: Success
+2024-09-09 15:37:03.054372 - Admin: System - Action: Initialize Pending Users Table - Status: Success
+2024-09-09 15:37:03.359735 - Admin: System - Action: Initialize Admin Table - Status: Success
+2024-09-09 15:37:03.359735 - Admin: System - Action: Initialize Users Table - Status: Success
+2024-09-09 15:37:03.360633 - Admin: System - Action: Initialize Pending Users Table - Status: Success
+2024-09-09 15:43:11.327148 - Admin: admin - Action: Login - Status: Failed
+2024-09-09 15:43:16.242204 - Admin: admin - Action: Login - Status: Failed
+2024-09-09 15:43:21.540068 - Admin: admin2 - Action: Login - Status: Success
+2024-09-09 15:43:55.792276 - Admin: admin2 - Action: Login - Status: Success
+2024-09-09 15:44:36.995704 - Admin: admin2 - Action: Login - Status: Success
+2024-09-09 15:44:40.651300 - Admin: admin2 - Action: Login - Status: Success
+2024-09-09 15:45:16.136772 - Admin: admin2 - Action: Login - Status: Success
+2024-09-09 15:46:01.429161 - Admin: admin - Action: Login - Status: Failed
+2024-09-09 15:46:24.047739 - Admin: admin - Action: Login - Status: Failed
+2024-09-09 15:50:28.311715 - Admin: admin - Action: Login - Status: Success
+2024-09-09 15:50:35.152146 - Admin: admin - Action: Login - Status: Success
+2024-09-09 15:52:10.572433 - Admin: admin - Action: Login - Status: Failed
+2024-09-09 15:52:42.650874 - Admin: admin - Action: Login - Status: Success
+2024-09-09 15:55:17.437464 - Admin: System - Action: Initialize Admin Table - Status: Success
+2024-09-09 15:55:17.441482 - Admin: System - Action: Initialize Users Table - Status: Success
+2024-09-09 15:55:17.445482 - Admin: System - Action: Initialize Pending Users Table - Status: Success
+2024-09-09 15:55:17.690473 - Admin: System - Action: Initialize Admin Table - Status: Success
+2024-09-09 15:55:17.690473 - Admin: System - Action: Initialize Users Table - Status: Success
+2024-09-09 15:55:17.690473 - Admin: System - Action: Initialize Pending Users Table - Status: Success
+2024-09-09 15:55:34.311515 - Admin: admin - Action: Login - Status: Success
+2024-09-09 15:58:04.506210 - Admin: System - Action: Initialize Admin Table - Status: Success
+2024-09-09 15:58:04.506210 - Admin: System - Action: Initialize Users Table - Status: Success
+2024-09-09 15:58:04.507209 - Admin: System - Action: Initialize Pending Users Table - Status: Success
+2024-09-09 15:58:09.518847 - Admin: System - Action: Initialize Admin Table - Status: Success
+2024-09-09 15:58:09.519745 - Admin: System - Action: Initialize Users Table - Status: Success
+2024-09-09 15:58:09.519745 - Admin: System - Action: Initialize Pending Users Table - Status: Success
+2024-09-09 15:59:14.554007 - Admin: System - Action: Initialize Admin Table - Status: Success
+2024-09-09 15:59:14.554935 - Admin: System - Action: Initialize Users Table - Status: Success
+2024-09-09 15:59:14.555277 - Admin: System - Action: Initialize Pending Users Table - Status: Success
+2024-09-09 15:59:14.796277 - Admin: System - Action: Initialize Admin Table - Status: Success
+2024-09-09 15:59:14.796277 - Admin: System - Action: Initialize Users Table - Status: Success
+2024-09-09 15:59:14.797167 - Admin: System - Action: Initialize Pending Users Table - Status: Success
+2024-09-09 15:59:36.176008 - Admin: admin - Action: Login - Status: Success
+2024-09-09 16:00:54.359201 - Admin: System - Action: Initialize Admin Table - Status: Success
+2024-09-09 16:00:54.360217 - Admin: System - Action: Initialize Users Table - Status: Success
+2024-09-09 16:00:54.360217 - Admin: System - Action: Initialize Pending Users Table - Status: Success
+2024-09-09 16:02:15.870770 - Admin: System - Action: Initialize Admin Table - Status: Success
+2024-09-09 16:02:15.870770 - Admin: System - Action: Initialize Users Table - Status: Success
+2024-09-09 16:02:15.872391 - Admin: System - Action: Initialize Pending Users Table - Status: Success
+2024-09-09 16:02:16.114076 - Admin: System - Action: Initialize Admin Table - Status: Success
+2024-09-09 16:02:16.114966 - Admin: System - Action: Initialize Users Table - Status: Success
+2024-09-09 16:02:16.114966 - Admin: System - Action: Initialize Pending Users Table - Status: Success
+2024-09-09 16:02:24.161613 - Admin: admin - Action: Login - Status: Success
+2024-09-09 16:03:01.671099 - Admin: admin - Action: Login - Status: Failed
+2024-09-09 16:04:59.412952 - Admin: admin - Action: Approve User ID 1 - Status: Success
+2024-09-09 20:05:12.336378 - Admin: admin - Action: Login - Status: Success
+2024-09-09 20:05:17.581904 - Admin: admin - Action: Deny User ID 2 - Status: Success
+2024-09-09 20:05:35.757957 - Admin: admin - Action: Delete User ID 1 - Status: Success
+2024-09-09 20:05:43.788993 - Admin: admin - Action: Approve User ID 1 - Status: Success
+2024-09-09 20:08:55.845037 - Admin: admin - Action: Login - Status: Success
+2024-09-09 20:08:58.455859 - Admin: admin - Action: Approve User ID 3 - Status: Success

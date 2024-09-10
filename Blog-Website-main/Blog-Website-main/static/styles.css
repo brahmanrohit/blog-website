@@ -1,0 +1,71 @@
+@import url('./bootstrap/css/bootstrap.min.css');
+
+#progress-bar {
+    width: 100%; /* Example width */
+    height: 4px; /* Example height */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+
+}
+
+/* this is for create post html */
+
+
+
+
+.container-fluid {
+    height: 100vh; /* Full viewport height */
+    overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+#help-code {
+    height: 60vh; /* 60% of viewport height */
+    overflow-y: auto; /* Enable vertical scroll */
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 25%; /* 25% of viewport width */
+    background-color: #f0f0f0; /* Light background color */
+    border-left: 1px solid #ccc; /* Border for separation */
+}
+
+.help {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 25%; /* 25% of viewport width */
+    overflow-y: auto; /* Enable vertical scroll */
+    height: 40vh; /* 40% of viewport height */
+}
+
+.help a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.help a:hover {
+    color: #ffc107; /* Yellow */
+}
+
+.help-section {
+    display: none;
+}
+
+.help-section.active {
+    display: block;
+}
+
+
+.list-group-item>p>img{
+    width: 25vw;
+    height: 30vh;
+}
+ 
